@@ -1,0 +1,5 @@
+Иван Иванов 110 1300 5.60 Literature Yale
+Иван Иванов 110 1300 5.60 Publishing Harvard
+Иван Иванов 110 1300 5.60 Biology Harvard
+Иван Иванов 110 1300 5.60 Physics Princeton
+Иван Иванов 110 1300 5.60 Unknown MIT
