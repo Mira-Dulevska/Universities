@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -24,9 +21,18 @@ public class Main {
                 String university = input.next();
                 Students student = new Students(firstName, lastName, toefl, sat, transcript, major, university);
                 if(toefl>105 && sat>1200 && transcript > 5.50 ){
-                    if(university == "Yale") yale.get(major).add(student);
-                    if(university == "Harvard") harvard.get(major).add(student);
-                    if(university == "Princeton") princeton.get(major).add(student);
+                    if(Objects.equals(university, "Yale")){
+                        if(!yale.containsKey(major)) yale.put(major, new PriorityQueue<>());
+                        yale.get(major).add(student);
+                    }
+                    if(Objects.equals(university, "Harvard")){
+                        if(!harvard.containsKey(major)) harvard.put(major, new PriorityQueue<>());
+                        harvard.get(major).add(student);
+                    }
+                    if(Objects.equals(university, "Princeton")){
+                        if(!princeton.containsKey(major)) princeton.put(major, new PriorityQueue<>());
+                        princeton.get(major).add(student);
+                    }
                 }
             }
             input.close();

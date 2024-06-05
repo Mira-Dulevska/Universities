@@ -18,10 +18,12 @@ public class StudentsThread extends Thread{
         File file = new File(name + ".txt");
         PrintWriter output = new PrintWriter(file);
         for(String major : mp.keySet()){
-            output.println(mp.keySet());
-            for(int i=0; i<5; i++){
-                output.print(mp.get(major).poll().getFirstName() + " " + mp.get(major).poll().getLastName() + " " + mp.get(major).poll().score());
+            output.println(major);
+            for(int i = 0; i<5 && !mp.get(major).isEmpty(); i++){
+                output.print(mp.get(major).peek().getFirstName() + " " + mp.get(major).peek().getLastName() + " " + mp.get(major).peek().score());
+                mp.get(major).poll();
             }
+            output.println();
         }
         output.close();
     }
